@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The End</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0b0b0b url('https://i.imgur.com/x2LpvWs.jpeg') no-repeat center center/cover;
+      font-family: 'Georgia', serif;
+      color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .end-screen {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 750px;
+      animation: fadeIn 3s ease-in-out forwards;
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.2);
+    }
+    h1 {
+      color: #ff4d4d;
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    p.quote {
+      font-size: 20px;
+      font-style: italic;
+      line-height: 1.8;
+      color: #e6e6e6;
+      margin-bottom: 30px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .buttons button {
+      background-color: #ff4d4d;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .buttons button:hover {
+      background-color: #990000;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="end-screen">
+    <h1>𝕿𝖍𝖊 𝕰𝖓𝖉</h1>
+    <p class="quote">
+      “Each choice we make leaves a mark—quiet, irreversible, and often unnoticed. We don’t realize it at the time, but every decision shapes who we’re becoming. It’s not just the big moments. It’s the quiet ones—the ones no one sees—that end up defining us. In the end, we’re not just living a story. We’re writing one, one choice at a time.”
+    </p>
+
+    <div class="buttons">
+      <button onclick="window.location.href='role-select.html'">🔁 Choose Another Role</button>
+      <button onclick="window.location.href='index.html'">🏠 Return to Home</button>
+      <button onclick="window.location.href='endings.html'">🔓 View All Endings</button>
+    </div>
+  </div>
+
+  <!-- 🎵 Background Music (Emotional Piano Track) -->
+  <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2022/03/23/audio_a3f4ad28ab.mp3" loop></audio>
+
+  <script>
+    const bgMusic = document.getElementById("bgMusic");
+
+    // Function to fade in volume
+    function fadeInMusic(audio, maxVolume = 0.4, duration = 3000) {
+      audio.volume = 0;
+      audio.play();
+      let step = maxVolume / (duration / 100);
+      let fade = setInterval(() => {
+        if (audio.volume < maxVolume) {
+          audio.volume = Math.min(audio.volume + step, maxVolume);
+        } else {
+          clearInterval(fade);
+        }
+      }, 100);
+    }
+
+    // Start music on first interaction (to bypass autoplay restrictions)
+    window.addEventListener('click', function once() {
+      fadeInMusic(bgMusic);
+      window.removeEventListener('click', once);
+    });
+  </script>
+
+</body>
+</html>

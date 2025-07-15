@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 2: The Body in the Hall</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #0c0c0c;
+      color: #f3f3f3;
+      padding: 2rem;
+      overflow-x: hidden;
+    }
+
+    .scene {
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.8;
+      opacity: 0;
+      display: none;
+      transition: opacity 1.5s ease;
+    }
+
+    h2 {
+      color: #ff4d4d;
+      font-size: 2rem;
+    }
+
+    .choices {
+      margin-top: 2rem;
+    }
+
+    button {
+      margin: 10px 10px 0 0;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #b30000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Default Intro Scene (only shows if no path is selected) -->
+  <div id="start" class="scene">
+    <h2>Chapter 2: The Body in the Hall</h2>
+    <p>
+      Ishaan opened the door slowly, half-expecting no one to be there.  
+      But the hallway wasn’t empty.  
+      At the far end, under the flickering dorm light, lay a shape—unmoving.
+    </p>
+    <p>
+      He stepped out, heart pounding in his ears.  
+      The silence pressed down like a physical weight. As he approached, he recognized the figure.  
+      It was Arjun—sprawled on the floor, face pale, lips parted. A small pool of blood was already forming beneath his head.
+    </p>
+    <p>
+      On the wall beside Arjun, written in something dark and smeared, were four chilling words:  
+      <strong>“You were too late.”</strong>
+    </p>
+    <p><strong>What should Ishaan do now?</strong></p>
+
+    <div class="choices">
+      <button onclick="showScene('scene2a')">Run to alert the warden</button>
+      <button onclick="showScene('scene2b')">Check Arjun’s pulse</button>
+      <button onclick="showScene('scene2c')">Take a photo of the wall</button>
+    </div>
+  </div>
+
+  <!-- Scene 2A -->
+  <div id="scene2a" class="scene">
+    <h2>Chapter 2A: The Panic</h2>
+    <p>
+      Ishaan opened the door slowly. A shape lay under the flickering dorm light.  
+      It was Arjun—pale, blood pooling under his head.  
+      On the wall: <strong>“You were too late.”</strong>
+    </p>
+    <p>
+      Ishaan turned and sprinted down the hallway. Each step echoed louder than the last.  
+      The warden’s room was dark. He banged the door, gasping, “Help! Someone’s hurt!”  
+      Lights flicked on. Faces appeared.  
+      Minutes later, the hallway filled with voices and sirens.  
+      The last thing he saw before being sent back was Kabir, standing still, staring at the message—expression unreadable.
+    </p>
+    <div class="choices">
+      <button disabled>Chapter 3 coming soon...</button>
+    </div>
+  </div>
+
+  <!-- Scene 2B -->
+  <div id="scene2b" class="scene">
+    <h2>Chapter 2B: The Final Breath</h2>
+    <p>
+      Ishaan opened the door slowly. A shape lay under the flickering dorm light.  
+      It was Arjun—pale, blood pooling under his head.  
+      On the wall: <strong>“You were too late.”</strong>
+    </p>
+    <p>
+      He dropped to his knees and pressed fingers to Arjun’s neck—cold, but still a faint pulse.  
+      “Arjun?”  
+      The boy's lips moved. Blood trickled down his cheek.  
+      “It... wasn’t him…”  
+      Then silence. No breath.  
+      Ishaan backed away, chilled to his core. Who wasn’t “him”? Not Kabir?  
+      Behind him, a floorboard creaked.
+    </p>
+    <div class="choices">
+      <button disabled>Chapter 3 coming soon...</button>
+    </div>
+  </div>
+
+  <!-- Scene 2C -->
+  <div id="scene2c" class="scene">
+    <h2>Chapter 2C: The Evidence</h2>
+    <p>
+      Ishaan opened the door slowly. A shape lay under the flickering dorm light.  
+      It was Arjun—pale, blood pooling under his head.  
+      On the wall: <strong>“You were too late.”</strong>
+    </p>
+    <p>
+      He raised his phone and took a photo of the wall, then Arjun.  
+      The blood. The message. The silence.  
+      As he zoomed in, he noticed a smear—maybe a fingerprint?  
+      Something slipped from Arjun’s hand.  
+      A folded note, soaked in blood.  
+      He opened it just enough to see four words:  
+      <strong>"I saw the knife."</strong>  
+      A door creaked behind him.
+    </p>
+    <div class="choices">
+      <button disabled>Chapter 3 coming soon...</button>
+    </div>
+  </div>
+
+  <script>
+    function showScene(id) {
+      const scenes = document.querySelectorAll('.scene');
+      scenes.forEach(scene => {
+        scene.style.display = 'none';
+        scene.style.opacity = 0;
+      });
+
+      const selected = document.getElementById(id);
+      selected.style.display = 'block';
+      setTimeout(() => {
+        selected.style.opacity = 1;
+      }, 50);
+    }
+
+    // Read the path from the URL
+    const params = new URLSearchParams(window.location.search);
+    const path = params.get('path');
+
+    if (path === '2a') showScene('scene2a');
+    else if (path === '2b') showScene('scene2b');
+    else if (path === '2c') showScene('scene2c');
+    else showScene('start'); // fallback
+  </script>
+</body>
+</html>

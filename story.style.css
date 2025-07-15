@@ -1,0 +1,123 @@
+/* Basic Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #0c0c13;
+  font-family: 'Georgia', serif;
+  overflow-x: hidden;
+}
+
+/* Background */
+.background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(ellipse at bottom, #0c0c13 0%, #000 100%);
+  overflow: hidden;
+}
+
+.moon {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #ff3c3c, #6b0000);
+  border-radius: 50%;
+  box-shadow: 0 0 40px #ff3c3c77;
+  animation: moonPulse 5s infinite ease-in-out;
+}
+
+@keyframes moonPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+.fog {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 200px;
+  background: url('https://i.ibb.co/MBt3N5D/fog-texture.png') repeat-x;
+  background-size: cover;
+  animation: fogMove 60s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes fogMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.city-glow {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, #1a1a1a 20%, transparent);
+  opacity: 0.4;
+}
+
+/* Story content */
+.story {
+  padding-top: 100px;
+  max-width: 800px;
+  z-index: 10;
+}
+
+/* Fade-in animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.5s forwards;
+}
+
+.fade-in,
+.fade-in-up {
+  animation-delay: var(--delay, 0s);
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Choice buttons */
+.choices {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.choices .btn {
+  min-width: 200px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.choices .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+.choices .btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+}

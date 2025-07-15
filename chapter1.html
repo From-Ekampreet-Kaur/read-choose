@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 1: The Red Moon Rises</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #0c0c0c;
+      color: #f3f3f3;
+      padding: 2rem;
+      overflow-x: hidden;
+    }
+    #story {
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+    h2 {
+      color: #ff4d4d;
+      font-size: 2rem;
+    }
+    .choices {
+      margin-top: 2rem;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 2s;
+    }
+    button {
+      margin: 10px 10px 0 0;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #b30000;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="story">
+    <h2>Chapter 1: The Red Moon Rises</h2>
+    <p>
+      Devgarh had always been a quiet town, but tonight was different.  
+      The air was too still, the streets too silent—as if the town itself was holding its breath.  
+      The sky bled red. The moon, enormous and ominous, loomed over the horizon like an eye that never blinked.
+    </p>
+    <p>
+      Inside Dorm 3C, Ishaan Kapoor sat at the edge of his bed, staring through the window.  
+      The red glow of the moon painted his walls in streaks of blood.  
+      Something felt wrong—not just eerie, but deeply personal.  
+      A weight pressed against his chest like a forgotten memory crawling back.
+    </p>
+    <p>
+      He thought about Arjun, his childhood friend, distant lately. And Kabir, unpredictable, quiet.  
+      There was tension between them lately—something unspoken, something dangerous.
+    </p>
+    <p>
+      A loud knock broke the silence. It came from the hallway outside his door.
+    </p>
+    <p><strong>What should Ishaan do?</strong></p>
+
+    <div class="choices">
+      <button onclick="location.href='chapter2.html?path=2a'">Open the door</button>
+      <button onclick="location.href='chapter2.html?path=2b'">Go for a walk</button>
+      <button onclick="location.href='chapter2.html?path=2c'">Call Kabir</button>
+    </div>
+    
+  </div>
+
+  <script>
+    function goTo(chapterFile) {
+      window.location.href = chapterFile;
+    }
+  </script>
+</body>
+</html>

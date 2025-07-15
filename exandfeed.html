@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Experience & Feedback</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #f5f5f5;
+      font-family: 'Georgia', serif;
+      padding: 40px;
+      background-image: url('https://i.imgur.com/x2LpvWs.jpeg'); /* red moon background */
+      background-size: cover;
+      background-position: center;
+      backdrop-filter: blur(5px);
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    }
+    h1, h3 {
+      text-align: center;
+      color: #ff4d4d;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      background-color: #1a1a1a;
+      color: white;
+      border: 1px solid #333;
+      border-radius: 8px;
+      resize: none;
+      font-size: 15px;
+    }
+    button {
+      background-color: #ff4d4d;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button:hover {
+      background-color: #b30000;
+    }
+    .summary {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-left: 5px solid crimson;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>💬 Share Your Experience</h1>
+    <div class="summary">
+      You walked the path of the <strong>Finder</strong>. You exposed the truth, but lost the one who mattered most. The Red Moon will remember your silence... or your scream.
+    </div>
+
+    <form id="feedbackForm">
+      <label>How did this story make you feel?</label>
+      <input type="radio" name="feeling" value="shocked"> Shocked<br>
+      <input type="radio" name="feeling" value="emotional"> Emotional<br>
+      <input type="radio" name="feeling" value="haunted"> Haunted<br>
+      <input type="radio" name="feeling" value="unsatisfied"> Wanting more<br>
+
+      <label>Would you replay another character's path?</label>
+      <input type="radio" name="replay" value="yes"> Definitely!<br>
+      <input type="radio" name="replay" value="maybe"> Maybe later<br>
+      <input type="radio" name="replay" value="no"> Once was enough<br>
+
+      <label>Leave your thoughts or message to the creator:</label>
+      <textarea placeholder="What stuck with you? A quote? A moment? A feeling?"></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('feedbackForm').onsubmit = function(e) {
+      e.preventDefault();
+      alert("🖤 Thank you for sharing your experience. The Red Moon hears you...");
+  // This simulates the role selection
+  // This should be set when the player chooses a role
+  // You can remove this line later and actually set it on character select
+  localStorage.setItem('playerRole', 'victim');  // or 'finder', 'murderer'
+
+  window.onload = function () {
+    const role = localStorage.getItem('playerRole') || 'finder';
+    const summaryBox = document.querySelector('.summary');
+    const summaryText = {
+      finder: "You walked the path of the <strong>Finder</strong>. You exposed the truth, but lost the one who mattered most. The Red Moon will remember your silence... or your scream.",
+      victim: "You were the <strong>Victim</strong>. You saw it coming, but not from the one you trusted most. Your final breath was a warning written in blood.",
+      murderer: "You chose the path of the <strong>Murderer</strong>. A twisted logic became your justice. But did the silence give you peace—or punishment?"
+    };
+    summaryBox.innerHTML = summaryText[role];
+
+    // You can also update form questions based on role
+    const feelingLabel = document.querySelector('label');
+    if (role === 'victim') {
+      feelingLabel.innerText = "How did playing as Reya make you feel?";
+    } else if (role === 'murderer') {
+      feelingLabel.innerText = "Did you feel justified—or condemned?";
+    } else {
+      feelingLabel.innerText = "How did this story make you feel?";
+    }
+    };
+
+
+      // Optional: Save to localStorage or send to backend
+      // Example:
+      // const feedback = {
+      //   feeling: document.querySelector('input[name="feeling"]:checked').value,
+      //   replay: document.querySelector('input[name="replay"]:checked').value,
+      //   comment: document.querySelector('textarea').value
+      // };
+      // localStorage.setItem('userFeedback', JSON.stringify(feedback));
+    }
+</script>
+</body>
+</html>
