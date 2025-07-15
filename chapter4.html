@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 4 - Paths of the Damned</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #0c0c0c;
+      color: #f3f3f3;
+      padding: 2rem;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #story {
+      max-width: 850px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    h2 {
+      color: #ff4d4d;
+    }
+
+    .choices {
+      margin-top: 2rem;
+    }
+
+    button {
+      margin: 10px 10px 0 0;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #b30000;
+    }
+  </style>
+</head>
+<body>
+  <div id="story">
+    <h2 id="chapter-title">Chapter 4: Paths of the Damned</h2>
+    <p id="text">
+      Three choices. Three paths. But only one truth.  
+      Ishaan stood at the edge of decision, every breath colder than the last.  
+      Somewhere in this madness was the key to it all — Arjun’s scream, Kabir’s silence, and that cursed red moon.  
+      <br><br>
+      What should he do now?
+    </p>
+
+    <div class="choices" id="choices">
+      <button onclick="showScene('police')">Go to the police station</button>
+      <button onclick="showScene('room')">Sneak into Arjun’s room</button>
+      <button onclick="showScene('forest')">Search the forest for Kabir</button>
+    </div>
+  </div>
+
+  <script>
+  // Automatically trigger the scene from URL
+  window.onload = function() {
+    const params = new URLSearchParams(window.location.search);
+    const scene = params.get('scene');
+    if (scene) showScene(scene);
+  };
+
+  function showScene(choice) {
+    const title = document.getElementById("chapter-title");
+    const text = document.getElementById("text");
+    const choices = document.getElementById("choices");
+
+    if (choice === 'police') {
+      title.innerText = "Chapter 4A: Interrogation";
+        text.innerHTML = `
+          The police station smelled of cold metal and silence.  
+          Ishaan sat in a too-bright room, a single bulb humming above his head.  
+          <br><br>
+          “Why was your name written in blood beside the victim?”  
+          “Why were you out at night?”  
+          <br>
+          He answered every question, but still — the glances exchanged between officers grew heavier.  
+          <br><br>
+          Then a photograph was tossed onto the table. A blurry image. Kabir and Arjun… arguing.  
+          <strong>And Ishaan... watching.</strong>  
+          <br><br>
+          His stomach dropped. When had this been taken? Who was watching them?
+        `;
+       } else if (choice === 'room') {
+      title.innerText = "Chapter 4B: The Journal";
+      text.innerHTML = `
+          Ishaan picked the lock like he’d seen in movies. Arjun’s dorm was cold, abandoned.  
+          His bed was made. His shelves untouched. But on his desk… a journal lay open.  
+          <br><br>
+          Pages were torn out. Some rewritten.  
+          There were sketches. A red moon. A shadowy figure. A knife.  
+          <br><br>
+          On the last page, scribbled in shaky ink:  
+          <em>“I don’t know if I can trust either of them. One of them wants me dead.”</em>  
+          <br><br>
+          Behind a stack of books, Ishaan found a flash drive. Labeled: “Confession?”
+        `;
+      } else if (choice === 'forest') {
+      title.innerText = "Chapter 4C: The Forest";
+      text.innerHTML = `
+          The pine trees whispered secrets only the dead could understand.  
+          Ishaan stepped over broken branches, into shadows untouched by the sun.  
+          <br><br>
+          “Kabir?” he called. Nothing.  
+          Then—footsteps.  
+          <br>
+          A figure emerged. Pale. Bleeding. Kabir.  
+          <br><br>
+          “They’re watching me,” he whispered.  
+          “I didn’t kill him… but I know who did.”  
+          Before Ishaan could ask more, Kabir collapsed, a knife wound in his side.  
+          Someone had followed him.  
+          Someone who didn’t want the truth to live.
+        `;
+    }
+
+    choices.innerHTML = `<button onclick="goToNext()">Continue</button>`;
+  }
+
+  function goToNext() {
+    window.location.href = "chapter5.html";
+  }
+</script>
+</body>
+</html>

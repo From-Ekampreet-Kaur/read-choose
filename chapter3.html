@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 3 - The Blame</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #0c0c0c;
+      color: #f3f3f3;
+      padding: 2rem;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #story {
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    h2 {
+      color: #ff4d4d;
+    }
+
+    .choices {
+      margin-top: 2rem;
+    }
+
+    button {
+      margin: 10px 10px 0 0;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #b30000;
+    }
+  </style>
+</head>
+<body>
+  <div id="story">
+    <h2 id="chapter-title">Chapter 3: The Blame</h2>
+    <p id="text">
+      Morning did nothing to soften the nightmare.  
+      The red moon had vanished from the sky, but its shadow still clung to Devgarh.  
+      <br><br>
+      Whether Ishaan had stood frozen before Arjun’s lifeless body or woken to the sound of sirens, it didn’t matter.  
+      Arjun was dead. That truth echoed louder than any alarm.  
+      <br><br>
+      Ishaan walked across the courtyard, cold breath curling in the morning fog.  
+      Faces turned. Whispers followed.  
+      <em>“He was with him last night, wasn’t he?”</em>  
+      <em>“No, he found the body… or said he did.”</em>  
+      <br><br>
+      Nothing felt real. Not the red tape wrapped around the amphitheater steps, not the drone of news reporters outside the campus gates, and certainly not the message scrawled in blood beside Arjun’s corpse.  
+      <strong>“Ishaan.”</strong>  
+      <br><br>
+      The police had cordoned off the area by dawn. Their boots left sharp impressions in the grass, but Ishaan’s mind was stuck—replaying that scene on loop.  
+      Arjun’s eyes open. Lifeless.  
+      Kabir missing. Vanished.  
+      <br><br>
+      A notebook had surfaced. Torn. Soaked. The last page was ripped out, violently.  
+      It was Arjun’s journal. A ritual of secrets. And the police believed it held the name of the killer.  
+      <br><br>
+      “You’ll have to come with us,” one officer said, voice dry as gravel.  
+      “We need your statement... and maybe more than that.”  
+      <br><br>
+      Ishaan couldn’t breathe. Was he a witness? Or a suspect?  
+      He remembered the look on Kabir’s face the day before — tense, distant.  
+      Arjun and Kabir had fought recently. Over something Arjun said. Over something Ishaan still didn’t know.  
+      <br><br>
+      But now, Arjun was gone. Kabir was missing. And the whole world was looking at Ishaan like he held the answers.
+    </p>
+
+    <div class="choices" id="choices">
+      <button onclick="goTo('chapter4.html?scene=police')">Follow the police to the station</button>
+      <button onclick="goTo('chapter4.html?scene=room')">Sneak into Arjun’s room to find the journal</button>
+      <button onclick="goTo('chapter4.html?scene=forest')">Go into the forest to find Kabir</button>
+    </div>
+  </div>
+
+  <script>
+    function goTo(page) {
+  window.location.href = page;
+}
+  </script>
+</body>
+</html>
