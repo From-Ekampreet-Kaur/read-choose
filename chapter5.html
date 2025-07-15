@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 5 - Truths That Burn</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #0c0c0c;
+      color: #f3f3f3;
+      padding: 2rem;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #story {
+      max-width: 850px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    h2 {
+      color: #ff4d4d;
+    }
+
+    .choices {
+      margin-top: 2rem;
+    }
+
+    button {
+      margin: 10px 10px 0 0;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #b30000;
+    }
+  </style>
+</head>
+<body>
+  <div id="story">
+    <h2 id="chapter-title">Chapter 5: Truths That Burn</h2>
+    <p id="text">
+      Kabir’s words haunted him.  
+      <em>“I didn’t kill him… but I know who did.”</em>  
+      <br><br>
+      But now Kabir lay unconscious in the hospital. No visitors allowed. No explanations given.  
+      Ishaan’s mind spun as he plugged the flash drive into his laptop.  
+      <br><br>
+      A folder popped open.  
+      <strong>“FinalProject_Truth”</strong>  
+      Inside—videos. Audio clips. Screenshots. Edited photos.  
+      <br><br>
+      Arjun’s voice crackled through:  
+      <em>“Ishaan’s memory is breaking. He doesn’t remember what we did in the woods last year. But I do.”</em>  
+      <br><br>
+      Ishaan’s heart thundered. What did he mean?  
+      A blurred image loaded next—three boys, hands bloodied, digging.  
+      <br><br>
+      Names flickered in his head. Places. Moments.  
+      Things he knew... or thought he did.  
+      <br><br>
+      Then a file named: <strong>“FindHer_Final”</strong>  
+      It was a video. Static. Then a girl’s face. Crying. Screaming.  
+      <br><br>
+      Suddenly it hit him like a train:  
+      <em>They had covered something up. Someone. Some night. And he had forgotten.</em>  
+      <br><br>
+      His reflection in the screen stared back, foreign.  
+      And then… the knock on the door.
+    </p>
+
+    <div class="choices" id="choices">
+      <button onclick="goTo('chapter6.html')">Open the door</button>
+      <button onclick="goTo('chapter6.html')">Ignore it and hide the flash drive</button>
+      <button onclick="goTo('chapter6.html')">Jump out the window and run</button>
+    </div>
+  </div>
+
+  <script>
+    function goTo(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+</html>

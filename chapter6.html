@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 6 - Before the Fall</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #0b0b0b;
+      color: #f3f3f3;
+      padding: 2rem;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #story {
+      max-width: 850px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    h2 {
+      color: #ff4d4d;
+      text-shadow: 0 0 10px crimson;
+    }
+
+    .choices {
+      margin-top: 2rem;
+    }
+
+    button {
+      margin: 10px 10px 0 0;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #b30000;
+    }
+  </style>
+</head>
+<body>
+  <div id="story">
+    <h2 id="chapter-title">Chapter 6: Before the Fall</h2>
+    <p id="text">
+      <strong>Knock. Knock.</strong><br><br>
+      It was almost gentle. Too gentle.<br><br>
+      Ishaan stood frozen, staring at the door. The laptop screen behind him still glowed with that cursed video—<em>FindHer_Final</em>—her eyes screaming through pixels.<br><br>
+      Another knock. Then a voice: calm, low, cold.<br><br>
+      <em>“We know you remember now.”</em><br><br>
+      Ishaan opened the door slowly. A man in a brown coat stood there, clean-shaven, no badge, no name. He held a clipboard as if this were an ordinary visit.<br><br>
+      “You’ve been watching,” the man said, stepping inside without permission. “That’s dangerous.”<br><br>
+      “Who are you?” Ishaan asked, backing away.<br><br>
+      “I’m the reminder. Of what you buried.”<br><br>
+      Then everything shattered.
+    </p>
+
+    <div class="choices" id="choices">
+      <button onclick="playScene('hospital')">Rush to the hospital—check if Kabir is alive</button>
+      <button onclick="playScene('confront')">Lock the door. Demand the truth. Fight if you must</button>
+      <button onclick="playScene('escape')">Flee. Someone else has to know. Someone must believe</button>
+    </div>
+  </div>
+
+  <script>
+    function playScene(choice) {
+      const title = document.getElementById("chapter-title");
+      const text = document.getElementById("text");
+      const choices = document.getElementById("choices");
+
+      if (choice === 'hospital') {
+        title.innerText = "Chapter 6A: The Vanishing";
+        text.innerHTML = `
+          Ishaan ran under the bleeding sky, feet pounding, heart screaming.  
+          The hospital stood like a tomb. Inside, the world smelled sterile... and silent.  
+          <br><br>
+          “Room 307,” he begged. “Kabir Kapoor.”  
+          The nurse blinked. “No such patient.”  
+          <br><br>
+          Panic. He ran past her.  
+          Room 307 was empty. Clean.  
+          <br><br>
+          On the bed—one item remained. A hand-drawn photo of three boys standing in front of the woods. But only two had faces. The third was scribbled out in red ink.  
+          <br><br>
+          On the back:  
+          <em>“Ishaan, stop digging. Let the dead stay buried.”</em>  
+        `;
+      } else if (choice === 'confront') {
+        title.innerText = "Chapter 6B: The Truth Bleeds";
+        text.innerHTML = `
+          Ishaan slammed the door and turned, fists clenched.  
+          “You want something? Say it. Now.”  
+          <br><br>
+          The man calmly opened his coat. Inside—photos. Ishaan’s own dorm. His laptop. Arjun’s body. Notes in black ink. Psychological terms.  
+          <br><br>
+          <em>Subject: I. Kapoor. Memory fracture Level IV. Observation in progress.</em>  
+          <br><br>
+          “This isn’t a story, Ishaan,” the man whispered. “It’s a test.”  
+          <br><br>
+          Ishaan’s world tilted.  
+          “Who are you?”  
+          “I’m the one who made you forget.”  
+        `;
+      } else if (choice === 'escape') {
+        title.innerText = "Chapter 6C: The Hollow Town";
+        text.innerHTML = `
+          Ishaan bolted out into the dark, breath sharp. The street was eerily quiet.  
+          No lights. No voices. Just shadows.  
+          <br><br>
+          He ran to the chapel—empty. The dorm—abandoned.  
+          He called everyone. Not a single ringtone.  
+          <br><br>
+          He reached Professor Malhotra’s house. The windows were shattered. A red moon carved on the wall in blood.  
+          <br><br>
+          In the center of the room: a ritual circle, burned into the wood.  
+          <br><br>
+          <em>“They were trying to contain something,”</em> Ishaan whispered.  
+          <br><br>
+          A journal lay open on the floor, the last page smeared:  
+          <em>“When the red moon rises… one will remember. One must not.”</em>
+        `;
+      }
+
+      choices.innerHTML = `<button onclick="goToNext()">Continue to Chapter 7</button>`;
+    }
+
+    function goToNext() {
+      window.location.href = "chapter7.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 9 - The Descent</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #050505;
+      color: #f5f5f5;
+      padding: 2rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #story {
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    h2 {
+      color: #ff1a1a;
+      text-shadow: 0 0 10px #ff4d4d;
+    }
+
+    .choices {
+      margin-top: 2rem;
+    }
+
+    button {
+      margin: 10px 10px 0 0;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      background-color: #ff1a1a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #990000;
+    }
+
+    .whisper {
+      font-style: italic;
+      color: #bbbbbb;
+    }
+
+    .glitch {
+      color: crimson;
+      text-shadow: 1px 1px 5px red;
+      animation: glitch 1.2s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px red; }
+      25% { text-shadow: -2px -2px #222; }
+      50% { text-shadow: 1px -1px crimson; }
+      75% { text-shadow: -1px 2px #111; }
+      100% { text-shadow: 2px 2px red; }
+    }
+  </style>
+</head>
+<body>
+  <div id="story">
+    <h2 id="chapter-title">Chapter 9: The Descent</h2>
+    <p id="text">
+      Ishaan couldn’t sleep. Couldn’t eat. Couldn’t breathe without feeling like the walls were listening.  
+      <br><br>
+      The photo. The knife. The records.  
+      They proved everything — and yet, *everyone* looked through him.  
+      <br><br>
+      His professors smiled with pity. His classmates whispered like he’d gone mad.  
+      And the shadows… the shadows moved when he wasn’t looking.  
+      <br><br>
+      He stopped attending classes. Stopped answering calls. He began drawing the symbols.  
+      On his walls. On his skin.  
+      <br><br>
+      “They’re watching,” he murmured. “They want me to forget too.”  
+      <br>
+      But he wouldn’t. He *couldn’t*.  
+    </p>
+
+    <div class="choices" id="choices">
+      <button onclick="playScene('confess')">Tell your story to the news</button>
+      <button onclick="playScene('run')">Try to disappear</button>
+      <button onclick="playScene('burn')">Burn the files and escape</button>
+    </div>
+  </div>
+
+  <script>
+    function playScene(choice) {
+      const title = document.getElementById("chapter-title");
+      const text = document.getElementById("text");
+      const choices = document.getElementById("choices");
+
+      if (choice === 'confess') {
+        title.innerText = "Chapter 9A: The Broadcast No One Believed";
+        text.innerHTML = `
+          Ishaan hacked into the student radio and told everything — live.  
+          About Arjun. About Kabir. About the red moon and the erased names.  
+          <br><br>
+          For five minutes, the truth was out there.  
+          <em class="whisper">Then silence.</em>  
+          <br><br>
+          The next day, the radio station denied the broadcast ever happened.  
+          The website — wiped.  
+          Ishaan was suspended for “mental distress.”  
+          <br><br>
+          They called his parents. And then came the white coats.
+        `;
+      } else if (choice === 'run') {
+        title.innerText = "Chapter 9B: Nowhere Left to Hide";
+        text.innerHTML = `
+          He packed only what mattered: the photo, the knife, the tape.  
+          He left Devgarh in the dead of night.  
+          <br><br>
+          But the world outside was colder.  
+          And the men in black coats found him in a cafe three towns away.  
+          <br><br>
+          “You’ve been very troubled, Mr. Kapoor.”  
+          <em class="whisper">“We’ll take care of you.”</em>  
+          <br><br>
+          A needle in the arm.  
+          A hospital room.  
+          The red moon rising outside the barred window.
+        `;
+      } else if (choice === 'burn') {
+        title.innerText = "Chapter 9C: Clean Slate";
+        text.innerHTML = `
+          He burned the evidence in the courtyard fire pit.  
+          Flames rose — sparks like blood in the wind.  
+          <br><br>
+          He thought it would free him.  
+          But the dreams got worse.  
+          Screams. Moons. Static.  
+          <br><br>
+          He woke one morning surrounded by doctors.  
+          “You set fire to your dorm room,” they said.  
+          “You’re not safe.”  
+          <br><br>
+          They locked the door behind them.  
+          And Ishaan... laughed.  
+          <span class="glitch">“I remember everything.”</span>
+        `;
+      }
+
+      choices.innerHTML = `<button onclick="goToNext()">Continue to Final Chapter</button>`;
+    }
+
+    function goToNext() {
+      window.location.href = "chapter10.html";
+    }
+  </script>
+</body>
+</html>

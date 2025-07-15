@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 7 - The Forgotten</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #080808;
+      color: #f1f1f1;
+      padding: 2rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #story {
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    h2 {
+      color: crimson;
+      text-shadow: 0 0 8px #ff0000;
+    }
+
+    .choices {
+      margin-top: 2rem;
+    }
+
+    button {
+      margin: 10px 10px 0 0;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      background-color: crimson;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #8b0000;
+    }
+
+    .glitch {
+      color: crimson;
+      animation: glitch 1.2s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px red; }
+      25% { text-shadow: -2px -2px #222; }
+      50% { text-shadow: 1px -1px crimson; }
+      75% { text-shadow: -1px 2px #111; }
+      100% { text-shadow: 2px 2px red; }
+    }
+  </style>
+</head>
+<body>
+  <div id="story">
+    <h2 id="chapter-title">Chapter 7: The Forgotten</h2>
+    <p id="text">
+      The world was still.  
+      Ishaan stood in the middle of the campus courtyard, surrounded by people he’d known for years.  
+      But they looked at him like he was a stranger.  
+      <br><br>
+      “Kabir?” he asked.  
+      A pause. A few confused glances.  
+      “Who?” someone whispered.  
+      <br><br>
+      “Arjun,” he tried. “The boy who died.”  
+      A girl tilted her head. “I think you need help.”  
+      <br><br>
+      His chest tightened. He ran to the admin office.  
+      Files — gone. No “Kabir Kapoor.” No “Arjun Mishra.”  
+      Yearbook photos — blank. Their faces replaced by static.  
+      <br><br>
+      He found their dorm room. Bedsheets tucked perfectly. Two untouched beds. As if no one had ever slept there.  
+      <em>“I’m losing my mind,”</em> Ishaan whispered.  
+    </p>
+
+    <div class="choices" id="choices">
+      <button onclick="playScene('photo')">Check the old photo in your journal</button>
+      <button onclick="playScene('return')">Return to the woods — find the knife</button>
+      <button onclick="playScene('surrender')">Give up. See the counselor</button>
+    </div>
+  </div>
+
+  <script>
+    function playScene(choice) {
+      const title = document.getElementById("chapter-title");
+      const text = document.getElementById("text");
+      const choices = document.getElementById("choices");
+
+      if (choice === 'photo') {
+        title.innerText = "Chapter 7A: The Photo That Shouldn’t Exist";
+        text.innerHTML = `
+          Ishaan flipped open his journal.  
+          In the back pocket, a photo fluttered out.  
+          Three boys. One camera. One summer.  
+          <br><br>
+          Arjun. Kabir. Ishaan.  
+          <br>
+          Their arms were locked, faces sweaty with laughter.  
+          <br><br>
+          He turned it over.  
+          In Arjun’s handwriting: <em>“To our last real day.”</em>  
+          <br><br>
+          <strong class="glitch">He wasn’t insane.</strong>  
+          <br>
+          They were real.  
+          Which meant... someone erased them.
+        `;
+      } else if (choice === 'return') {
+        title.innerText = "Chapter 7B: The Knife in the Earth";
+        text.innerHTML = `
+          The woods welcomed him with silence.  
+          He followed his memory — the broken chapel path, the trail of ash.  
+          <br><br>
+          Under a twisted pine, he dug with bare hands.  
+          <br>
+          The soil bled red.  
+          <br><br>
+          He found it. The knife. Arjun’s name carved into the handle. Blood still dried at the base.  
+          <br><br>
+          His hands trembled.  
+          He hadn’t imagined it.  
+          <strong class="glitch">They were murdered. He saw it. He lived it.</strong>  
+          And now… he was next.
+        `;
+      } else if (choice === 'surrender') {
+        title.innerText = "Chapter 7C: The White Room";
+        text.innerHTML = `
+          “I’m losing it,” Ishaan whispered. “I need help.”  
+          <br><br>
+          The counselor welcomed him kindly. A soft voice. A warm room.  
+          She listened. Took notes. Smiled.  
+          <br><br>
+          “Kabir?” she asked. “Arjun?”  
+          “Yes! You know them?”  
+          She stared.  
+          <br><br>
+          “No, Ishaan. There’s never been anyone by those names.”  
+          <br><br>
+          He screamed.  
+          The walls flickered. A red moon outside the window pulsed once—then vanished.  
+          <br><br>
+          He wasn’t safe. He was trapped.  
+          And someone… was watching.
+        `;
+      }
+
+      choices.innerHTML = `<button onclick="goToNext()">Continue</button>`;
+    }
+
+    function goToNext() {
+      window.location.href = "chapter8.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 8 - The Archive Below</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #0a0a0a;
+      color: #f1f1f1;
+      padding: 2rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #story {
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    h2 {
+      color: #e60000;
+      text-shadow: 0 0 10px #aa0000;
+    }
+
+    .choices {
+      margin-top: 2rem;
+    }
+
+    button {
+      margin: 10px 10px 0 0;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      background-color: #e60000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #8b0000;
+    }
+
+    .glow {
+      color: crimson;
+      text-shadow: 0 0 5px crimson;
+    }
+
+    .fade-slow {
+      opacity: 0;
+      animation: fadeIn 4s forwards;
+    }
+  </style>
+</head>
+<body>
+  <div id="story">
+    <h2 id="chapter-title">Chapter 8: The Archive Below</h2>
+    <p id="text">
+      The knife. The photo. The red moon.<br><br>
+      Ishaan had proof now.  
+      But what use was the truth when the world was blind to it?<br><br>
+      He needed answers. He needed to know who had rewritten reality itself.  
+      So he started digging.<br><br>
+      Through records. Through silence. Through lies.  
+      A janitor. A whisper. A locked door beneath the science block.  
+      <br><br>
+      <em>"The archive,"</em> they said.  
+      <em>"No one goes down there anymore."</em><br><br>
+      So Ishaan went.
+    </p>
+
+    <div class="choices" id="choices">
+      <button onclick="playScene('enter')">Break into the underground archive</button>
+      <button onclick="playScene('confront_prof')">Confront Professor Malhotra</button>
+      <button onclick="playScene('follow_file')">Follow the classified file you found</button>
+    </div>
+  </div>
+
+  <script>
+    function playScene(choice) {
+      const title = document.getElementById("chapter-title");
+      const text = document.getElementById("text");
+      const choices = document.getElementById("choices");
+
+      if (choice === 'enter') {
+        title.innerText = "Chapter 8A: Beneath the Campus";
+        text.innerHTML = `
+          Ishaan pried the rusted gate open.  
+          Stairs spiraled downward into concrete shadows.  
+          <br><br>
+          The walls were marked in chalk — symbols like the ones from the red moon journal.  
+          <br><br>
+          Filing cabinets lined the halls. Each drawer marked with numbers, not names.  
+          In one drawer: <strong class="glow">Case 0997 - Memory Severance Subjects: Arjun M. / Kabir K.</strong>  
+          <br><br>
+          His hands shook as he opened it. Inside — pages of psychological breakdowns, behavioral control, timelines.  
+          <em>“Subjects uncooperative. Initiate full wipe. Disassociate from Host: I. Kapoor.”</em>  
+          <br><br>
+          They were testing on him.
+        `;
+      } else if (choice === 'confront_prof') {
+        title.innerText = "Chapter 8B: The Professor’s Guilt";
+        text.innerHTML = `
+          Professor Malhotra was waiting.  
+          As if he knew Ishaan would come.  
+          <br><br>
+          “You found it, didn’t you?” he said softly.  
+          “The photo. The knife.”  
+          <br><br>
+          “Why didn’t you help me?” Ishaan cried.  
+          The professor looked old, tired.  
+          “Because I couldn’t protect you from what you are.”  
+          <br><br>
+          Ishaan froze.  
+          “What... I am?”  
+          <br><br>
+          Malhotra pulled out a black file with the crest of the institute.  
+          “You weren’t just their friend, Ishaan. You were the catalyst.”  
+        `;
+      } else if (choice === 'follow_file') {
+        title.innerText = "Chapter 8C: The Lost File";
+        text.innerHTML = `
+          The file was marked **Project VANTA**.  
+          Hidden inside the headmaster’s locked drawer.  
+          <br><br>
+          It contained transcripts. Surveillance.  
+          Audio logs from a room marked ‘Red Watch Lab’.  
+          <br><br>
+          One entry chilled Ishaan to the bone:  
+          <br>
+          <em>“Subject I.K. displays retroactive guilt loops. Dreams bleed into reality. Memory reshapes events. Recommend: containment or deletion.”</em>  
+          <br><br>
+          And at the bottom: a photo of him.  
+          Eyes blank. Hooked to wires.  
+          <br><br>
+          Labeled: <strong class="glow">THE FINDER</strong>.  
+          He wasn’t just observing.  
+          He was *part of it all*.
+        `;
+      }
+
+      choices.innerHTML = `<button onclick="goToNext()">Continue to Chapter 9</button>`;
+    }
+
+    function goToNext() {
+      window.location.href = "chapter9.html";
+    }
+  </script>
+</body>
+</html>
